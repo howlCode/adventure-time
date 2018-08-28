@@ -6424,8 +6424,6 @@ label.panel-block {
   font-family: "Kirang Haerang", cursive;
   font-size: 2.5rem;
   text-decoration: none; }
-  #logo:hover {
-    color: black; }
 
 .message-header-title {
   text-transform: capitalize; }
@@ -6433,43 +6431,10 @@ label.panel-block {
 .story-selection:hover {
   cursor: pointer; }
 
-.arc-counter {
-  color: #3273dc; }
-
 .main-story {
   transition: transform 0.25s ease; }
   .main-story:hover {
     transform: scale(1.05, 1.05); }
-
-.story-text:hover {
-  cursor: pointer;
-  text-decoration: underline; }
-  .story-text:hover .story-user {
-    visibility: visible; }
-
-.story-user {
-  visibility: hidden;
-  width: fit-content;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-  position: absolute;
-  z-index: 1; }
-
-.arc-text:hover {
-  cursor: pointer;
-  text-decoration: underline; }
-  .arc-text:hover .arc-user {
-    visibility: visible; }
-
-.arc-user {
-  visibility: hidden;
-  width: fit-content;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
-  position: absolute;
-  z-index: 1; }
 
 .modal-background {
   background-color: rgba(33, 33, 33, 0.95); }
@@ -6480,16 +6445,6 @@ label.panel-block {
 
 .arc-titles-text a {
   color: #fff;
-  font-size: 1rem;
-  text-transform: capitalize; }
+  font-size: 1rem; }
   .arc-titles-text a:hover {
-    color: #3273dc; }
-
-.title {
-  font-family: "Kirang Haerang", cursive;
-  font-size: 2rem;
-  color: #fff; }
-
-.signinup-form {
-  margin: 0 auto;
-  width: 30%; }
+    color: #ec4c64; }

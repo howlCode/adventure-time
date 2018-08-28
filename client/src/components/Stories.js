@@ -7,16 +7,16 @@ class Stories extends Component {
     title: "There Was An Old Lady Who Swallowed a Fly",
     body:
       "Once upon a time there was an old lady who decided to swallow a fly.",
-    user: "test@example.com",
+    user: "tester101",
     arcs: [
       {
         id: 1,
-        user: "sample_user@example.com",
+        user: "frankie",
         body: "Why oh why did she swallow the fly."
       },
       {
         id: 2,
-        user: "example_user@example.com",
+        user: "storyguy",
         body: "Perhaps she'll die"
       }
     ]
@@ -26,21 +26,21 @@ class Stories extends Component {
     title: "once upon a time in a mexican villa",
     body:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    user: "test2@example.com",
+    user: "tester1",
     arcs: [
       {
         id: 1,
-        user: "test@testing.com",
+        user: "bigwrites",
         body: "there was a lovely person."
       },
       {
         id: 2,
-        user: "frankey@example.com",
+        user: "frankey",
         body: "who loved cake."
       },
       {
         id: 3,
-        user: "tom@exmaple.com",
+        user: "tom",
         body: "and coronoa light."
       }
     ]
@@ -76,9 +76,9 @@ class Stories extends Component {
                 <div className="message is-medium main-story">
                   <header className="message-header">
                     <p className="message-header-title">{story.title}</p>
-                    <p className="has-text-info">
+                    <p className="has-text-danger">
                       Arcs:{" "}
-                      <span className="has-text-warning">
+                      <span className="has-text-light">
                         {story.arcs.length}
                       </span>
                     </p>

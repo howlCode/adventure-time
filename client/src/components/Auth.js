@@ -1,29 +1,19 @@
 import React from "react";
 
 const Auth = props => {
-  if (props.show === false) {
-    return null;
-  }
-
   return (
-    <div className="modal is-active">
-      <div className="modal-background" />
-      <div className="modal-content">
-        <div className="has-text-centered">
-          <h3 className="has-text-light title">Sign Up and Start Creating!</h3>
-          <a href="/auth/google">
-            <img
-              src={require("../images/btn_google_signin_dark_focus_web.png")}
-            />
-          </a>
-        </div>
+    <section className="section">
+      <div className="container has-text-centered">
+        <h1 className="title">Sign In and Start Creating!</h1>
+        <h2 className="subtitle">Choose Your Provider:</h2>
+        <a href="/auth/google">
+          <img
+            alt="Google Login Button"
+            src={require("../images/btn_google_signin_dark_focus_web.png")}
+          />
+        </a>
       </div>
-      <button
-        className="modal-close is-large"
-        aria-label="close"
-        onClick={props.onClose}
-      />
-    </div>
+    </section>
   );
 };
 export default Auth;

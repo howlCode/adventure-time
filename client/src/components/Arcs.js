@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { TextTruncate } from "../SharedFunctions";
 
 class Arcs extends Component {
   arcs = this.props.story.arcs;
@@ -19,6 +18,7 @@ class Arcs extends Component {
       if (this.arcs.indexOf(arc) >= this.arcs.indexOf(a)) {
         newStory.push(a);
       }
+      return newStory;
     });
     this.setState({ currentArcShown: newStory });
   };
@@ -37,15 +37,11 @@ class Arcs extends Component {
               <nav className="breadcrumb is-centered">
                 <ul className="arc-titles-text">
                   <li>
-                    <a onClick={this.showStory}>
-                      {TextTruncate(this.story.body, 30)}
-                    </a>
+                    <a onClick={this.showStory}>{this.story.user}</a>
                   </li>
                   {this.arcs.map(arc => (
                     <li key={arc.id}>
-                      <a onClick={() => this.toggleArc(arc)}>
-                        {TextTruncate(arc.body, 30)}
-                      </a>
+                      <a onClick={() => this.toggleArc(arc)}>{arc.user}</a>
                     </li>
                   ))}
                 </ul>
@@ -59,12 +55,9 @@ class Arcs extends Component {
                     <div className="message-body">
                       <div className="story-text">
                         {this.state.currentArcShown.map(arc => (
-                          <p>
+                          <React.Fragment>
                             <span>{arc.body}</span>
-                            <span className="story-user button is-info">
-                              {arc.user}
-                            </span>
-                          </p>
+                          </React.Fragment>
                         ))}
                       </div>
                     </div>
