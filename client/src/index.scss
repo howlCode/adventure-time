@@ -1,0 +1,113 @@
+@import "bulma/bulma";
+@import url("https://fonts.googleapis.com/css?family=Kirang+Haerang");
+
+@import "mixins";
+
+$secondary-color: #3273dc;
+
+#logo {
+  font-family: "Kirang Haerang", cursive;
+  font-size: 2.5rem;
+  // line-height: 2rem;
+  // padding: 20px;
+  // margin-top: 50px;
+  // margin-bottom: 50px;
+  text-decoration: none;
+  // color: black;
+
+  &:hover {
+    color: black;
+  }
+}
+
+.message-header-title {
+  text-transform: capitalize;
+}
+
+.story-selection:hover {
+  cursor: pointer;
+}
+
+.arc-counter {
+  color: $secondary-color;
+}
+
+.main-story {
+  @include swell;
+
+  &:hover {
+    @include hoverSwell();
+  }
+}
+
+.story-text {
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+
+    .story-user {
+      visibility: visible;
+    }
+  }
+}
+
+.story-user {
+  visibility: hidden;
+  width: fit-content;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+}
+
+.arc-text {
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+
+    .arc-user {
+      visibility: visible;
+    }
+  }
+}
+
+.arc-user {
+  visibility: hidden;
+  width: fit-content;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  position: absolute;
+  z-index: 1;
+}
+
+.modal-background {
+  background-color: rgba(33, 33, 33, 0.95);
+}
+
+.modal-content {
+  width: 90%;
+  overflow: hidden;
+}
+
+.arc-titles-text a {
+  color: #fff;
+  font-size: 1rem;
+  text-transform: capitalize;
+
+  &:hover {
+    color: $secondary-color;
+  }
+}
+
+.title {
+  font-family: "Kirang Haerang", cursive;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.signinup-form {
+  margin: 0 auto;
+  width: 30%;
+}

@@ -1,0 +1,7 @@
+@mixin swell {
+  transition: transform 0.25s ease;
+}
+
+@mixin hoverSwell {
+  transform: scale(1.05, 1.05);
+}
