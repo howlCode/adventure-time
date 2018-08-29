@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { TextTruncate } from "../SharedFunctions";
 import Arcs from "./Arcs";
 
 class Stories extends Component {
   test_story = {
+    id: 1,
     title: "There Was An Old Lady Who Swallowed a Fly",
     body:
       "Once upon a time there was an old lady who decided to swallow a fly.",
@@ -23,6 +25,7 @@ class Stories extends Component {
   };
 
   test_story2 = {
+    id: 2,
     title: "once upon a time in a mexican villa",
     body:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
@@ -68,8 +71,8 @@ class Stories extends Component {
         <div className="container">
           <div className="columns">
             {this.state.stories.map(story => (
-              <div
-                onClick={() => this.showStory(story)}
+              <Link
+                to={`/story/${story.id}`}
                 className="column story-selection"
                 key={story.id}
               >
@@ -90,7 +93,7 @@ class Stories extends Component {
                     </span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

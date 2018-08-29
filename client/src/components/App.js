@@ -22,7 +22,7 @@ class App extends Component {
           <Header />
           <Route exact path="/" component={Stories} />
           <Route exact path="/portal" component={Auth} />
-          <Route path="/story/:id" render={props => <Arcs {...props} />} />
+          <Route path="/story/:id" component={Arcs} />
           <Route exact path="/new-story" component={StoryForm} />
           <Footer />
         </div>
