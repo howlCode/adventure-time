@@ -1,56 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { fetchStories } from "../actions";
 import { TextTruncate } from "../SharedFunctions";
 import Arcs from "./Arcs";
 
 class Stories extends Component {
-  test_story = {
-    id: 1,
-    title: "There Was An Old Lady Who Swallowed a Fly",
-    body:
-      "Once upon a time there was an old lady who decided to swallow a fly.",
-    user: "tester101",
-    arcs: [
-      {
-        id: 1,
-        user: "frankie",
-        body: "Why oh why did she swallow the fly."
-      },
-      {
-        id: 2,
-        user: "storyguy",
-        body: "Perhaps she'll die"
-      }
-    ]
-  };
-
-  test_story2 = {
-    id: 2,
-    title: "once upon a time in a mexican villa",
-    body:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    user: "tester1",
-    arcs: [
-      {
-        id: 1,
-        user: "bigwrites",
-        body: "there was a lovely person."
-      },
-      {
-        id: 2,
-        user: "frankey",
-        body: "who loved cake."
-      },
-      {
-        id: 3,
-        user: "tom",
-        body: "and coronoa light."
-      }
-    ]
-  };
+  componentDidMount() {
+    this.props.fetchStories();
+  }
 
   state = {
-    stories: [this.test_story, this.test_story2],
     story: [],
     showStory: false
   };
@@ -66,47 +26,72 @@ class Stories extends Component {
   };
 
   render() {
-    return (
-      <section className="section">
-        <div className="container">
-          <div className="columns">
-            {this.state.stories.map(story => (
-              <Link
-                to={`/story/${story.id}`}
-                className="column story-selection"
-                key={story.id}
-              >
-                <div className="message is-medium main-story">
-                  <header className="message-header">
-                    <p className="message-header-title">{story.title}</p>
-                    <p className="has-text-danger">
-                      Arcs:{" "}
-                      <span className="has-text-light">
-                        {story.arcs.length}
+    if (!this.state.loading) {
+      return (
+        <section className="section">
+          <div className="container">
+            <div className="columns">
+              {this.props.stories.map(story => (
+                <Link
+                  to={`/story/${story.id}`}
+                  story={story}
+                  className="column story-selection"
+                  key={story.id}
+                >
+                  <div className="message is-medium main-story">
+                    <header className="message-header">
+                      <p className="message-header-title">{story.title}</p>
+                      <p className="has-text-danger">
+                        Arcs:{" "}
+                        <span className="has-text-light">
+                          {story.arcs.length}
+                        </span>
+                      </p>
+                    </header>
+                    <div className="message-body">
+                      <p>{TextTruncate(story.body, 200)}</p>
+                      <span className="is-italic is-pulled-right">
+                        -- {story.user}
                       </span>
-                    </p>
-                  </header>
-                  <div className="message-body">
-                    <p>{TextTruncate(story.body, 200)}</p>
-                    <span className="is-italic is-pulled-right">
-                      -- {story.user}
-                    </span>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
-        {this.state.showStory ? (
-          <Arcs
-            story={this.state.story}
-            onClose={this.toggleModal}
-            show={this.state.showStory}
-          />
-        ) : null}
-      </section>
-    );
+          {this.state.showStory ? (
+            <Arcs
+              story={this.state.story}
+              onClose={this.toggleModal}
+              show={this.state.showStory}
+            />
+          ) : null}
+        </section>
+      );
+    } else {
+      return (
+        <section className="section">
+          <div className="container">
+            <div className="message is-medium main-story">
+              <header className="message-header">
+                <p className="message-header-title">Loading Stories...</p>
+              </header>
+              <div className="message-body">
+                <p>Once upon a time all the stories were loading...</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
   }
 }
 
-export default Stories;
+const mapStateToProps = ({ stories }) => {
+  return { stories };
+};
+
+export default connect(
+  mapStateToProps,
+  { fetchStories }
+)(Stories);

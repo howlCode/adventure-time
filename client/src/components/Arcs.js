@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 
 class Arcs extends Component {
-  // arcs = this.props.story.arcs;
-  // story = this.props.story;
-
-  componentDidMount() {}
+  componentDidMount() {
+    const story = this.props.story;
+  }
 
   state = {
     currentArcShown: [this.story]

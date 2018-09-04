@@ -51,8 +51,8 @@ class Header extends Component {
         </div>
         <div className="navbar-menu">
           <div className="navbar-end">
-            <div class="navbar-item">
-              <div class="field is-grouped">{this.renderContent()}</div>
+            <div className="navbar-item">
+              <div className="field is-grouped">{this.renderContent()}</div>
             </div>
           </div>
         </div>
